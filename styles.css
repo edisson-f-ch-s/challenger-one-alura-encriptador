@@ -1,0 +1,354 @@
+/* Importar fuentes */
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+/* Variables */
+:root {
+    --color-fondo: #222;
+    --color-texto: #fff;
+    --color-contorno: #fff;
+    --color-boton: #8b0000;
+    --color-boton-hover: #a52a2a;
+    --color-footer: #444;
+    
+    --fuente-principal: 'Comfortaa', sans-serif;
+}
+
+/* Reset de márgenes y rellenos */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos generales del cuerpo */
+body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    font-family: var(--fuente-principal);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100vh; /* Permite que el contenido determine la altura mínima */
+    text-align: center;
+}
+
+/* Estilos del main */
+main {
+    flex-grow: 1; /* Hace que el main ocupe el espacio disponible y empuje el footer hacia abajo */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos del encabezado */
+.encabezado {
+    display: flex;
+    justify-content: center;
+    background-color: var(--color-footer);
+    width: 100%;
+    padding: 10px 0;
+}
+
+.encabezado h1 {
+    margin: 0;
+    font-size: 2rem;
+}
+
+/* Estilos de la presentación */
+.presentacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: auto;
+    gap: 40px;
+}
+
+.contenido-principal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    padding-top: 10px;
+}
+
+/* Estilos del contenedor del mapa */
+.contenedor-mapa {
+    display: flex;
+    width: 350px;
+    height: 660px;
+    position: relative;
+    perspective: 1000px;
+    perspective-origin: center;
+
+}
+
+.lado-mapa {
+    width: 50%;
+    height: 100%;
+    background-size: contain;
+    background-position: center;
+    transition: transform 1s ease;
+    backface-visibility: hidden;
+}
+
+.lado-izquierdo {
+    background-image: url('assets/mapa-izquierda.png');
+    transform-origin: left center;
+}
+
+.lado-derecho {
+    background-image: url('assets/mapa-derecha.png');
+    transform-origin: right center;
+}
+
+.contenedor-mapa.abierto .lado-izquierdo {
+    transform: rotateY(-180deg);
+}
+
+.contenedor-mapa.abierto .lado-derecho {
+    transform: rotateY(180deg);
+}
+
+/* Estilos del botón y contenedor del botón */
+.contenedor-boton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.boton-mapa {
+    background-color: #7f0909; /* Color primario de Gryffindor */
+    color: #FFC500; /* Color secundario de Gryffindor */
+    border: 2px solid #FFC500;
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones para la animación */
+}
+
+.boton-mapa:hover {
+    background-color: #FFC500;
+    color: #7f0909;
+    border: 2px solid #7f0909;
+}
+
+.boton-mapa:active {
+    transform: scale(0.95); /* Reduce el tamaño al hacer clic */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para efecto de presión */
+}
+
+
+/* Estilos de las instrucciones */
+.instrucciones {
+    font-size: 0.9rem;
+    color: var(--color-texto);
+}
+
+/* Estilos del footer */
+.footer {
+    display: flex;
+    background-color: var(--color-footer);
+    padding: auto;
+    margin: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+    color: var(--color-texto);
+
+}
+
+.desarrollado {
+    margin: 10px;
+    font-size: 1rem;
+}
+
+.logos {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Para alinear a la derecha en pantallas grandes */
+}
+
+.logo {
+    width: 90px; /* Establecer un ancho uniforme para ambos logos */
+    margin-left: 10px;
+    padding: 10px;
+    object-fit: contain; /* Asegura que la imagen mantenga su aspecto dentro del contenedor */
+}
+
+/* Ajuste para pantallas de laptop */
+@media (max-width: 1200px) {
+    .contenedor-mapa {
+        width: 280px;
+        height: 540px;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .presentacion {
+        padding: 20px;
+    }
+
+    .boton-mapa {
+        font-size: 1.2rem; /* Ajuste de tamaño de fuente para pantallas pequeñas */
+        padding: 15px 25px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .agradecimiento {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .logos {
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center; /* Centra los logos en dispositivos pequeños */
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
+}
+
+
+@keyframes brillo {
+    0%, 100% {
+        box-shadow: 0 0 5px #FFC500, 0 0 10px #FFC500, 0 0 15px #FFC500, 0 0 20px #FFC500;
+    }
+    50% {
+        box-shadow: 0 0 10px #FFC500, 0 0 20px #FFC500, 0 0 30px #FFC500, 0 0 40px #FFC500;
+    }
+}
+
+.boton-mapa {
+    animation: brillo 3s infinite;
+}
+
+/* Estilos del contenedor del encriptador */
+.contenedor-encriptador {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    background-image: url(assets/casas.png);
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
+    background-position: center; /* Centra la imagen de fondo */
+    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    padding: 50px;
+}
+
+
+.texto-entrada, .texto-salida {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    border: 2px solid var(--color-contorno);
+    border-radius: 5px;
+    background-color: rgba(34, 34, 34, 0.7); /* Reducir la opacidad del fondo de las cajas */
+    color: rgba(255, 255, 255, 0.8); /* Reducir la opacidad del texto para un efecto más suave */
+    resize: none;
+}
+
+
+.texto-salida {
+    background-color: #333;
+    color: #eee;
+    resize: none;
+}
+
+.botones-encriptador {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.boton-encriptar, .boton-desencriptar, .boton-copiar {
+    background-color: #7f0909;
+    color: #FFC500;
+    border: 2px solid #FFC500;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-family: var(--fuente-principal);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    flex-grow: 1;
+    margin: 0 5px;
+}
+
+.boton-encriptar:hover, .boton-desencriptar:hover, .boton-copiar:hover {
+    background-color: #FFC500;
+    color: #7f0909;
+    border: 2px solid #7f0909;
+}
+
+/* Ajuste para centrar el encriptador cuando el mapa está abierto */
+.contenido-principal.abierto {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/* Estilos del contenedor del encriptador */
+.contenedor-encriptador {
+    display: none; /* Oculto inicialmente */
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px;
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones para suavizar la aparición */
+}
+
+.contenedor-encriptador.visible {
+    display: flex; /* Mostrar cuando se abra el mapa */
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contenedor-encriptador.oculto {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px); /* Posición inicial antes de aparecer */
+}
+
+.presentacion {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+}
+
+.contenido-principal.abierto + .contenedor-encriptador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    opacity: 1;
+    transform: translateY(0);
+    position: relative; /* Asegura que el encriptador se posicione en el espacio del mapa */
+    z-index: 10; /* Asegura que el encriptador esté por encima de otros elementos */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}

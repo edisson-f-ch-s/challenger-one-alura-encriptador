@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa del Encriptador</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="encabezado">
+        <h1>El Mapa del Encriptador</h1>
+    </header>
+    
+    <main class="presentacion">
+        <div class="contenido-principal">
+            <div class="contenedor-mapa">
+                <div class="lado-mapa lado-izquierdo"></div>
+                <div class="lado-mapa lado-derecho"></div>
+            </div>
+            <div class="contenedor-boton">
+                <button id="boton-mapa" class="boton-mapa">¡Juro solemnemente que mis intenciones no son buenas!</button>
+                <p class="instrucciones">Haga clic en el botón o directamente en el mapa para ABRIR/CERRAR el mapa</p>
+            </div>
+        </div>
+
+        <div id="contenedor-encriptador" class="contenedor-encriptador oculto">
+            <h2>ENCRIPTADOR</h2>
+            <textarea id="texto-entrada" class="texto-entrada" placeholder="Ingrese el texto aquí..."></textarea>
+            <p class="indicador-caracteres">* Solo se permiten letras minúsculas sin acentos.</p>
+
+            <div class="botones-encriptador">
+                <button id="encriptar" class="boton-encriptar">Encriptar</button>
+                <button id="desencriptar" class="boton-desencriptar">Desencriptar</button>
+            </div>
+            <textarea id="texto-salida" class="texto-salida" placeholder="El resultado aparecerá aquí..." readonly></textarea>
+            <button id="copiar" class="boton-copiar">Copiar</button>
+        </div>
+    </main>
+    
+    <footer class="footer">
+        <p class="desarrollado">Desarrollado por <strong>Edisson</strong></p>
+        <div class="logos">
+            <img src="assets/logo-alura.svg" alt="Logo de Alura" class="logo">
+            <img src="assets/one.png" alt="Logo de ONE" class="logo">
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
