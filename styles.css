@@ -3,14 +3,28 @@
 
 /* Variables */
 :root {
+    /* Colores */
     --color-fondo: #222;
     --color-texto: #fff;
     --color-contorno: #fff;
-    --color-boton: #8b0000;
-    --color-boton-hover: #a52a2a;
+    --color-boton: #7f0909; /* Color primario de Gryffindor */
+    --color-boton-hover: #FFC500; /* Color secundario de Gryffindor */
     --color-footer: #444;
-    
+    --color-fondo-semitransparente: rgba(34, 34, 34, 0.7);
+    --color-texto-semitransparente: rgba(255, 255, 255, 0.8);
+
+    /* Fuentes */
     --fuente-principal: 'Comfortaa', sans-serif;
+
+    /* Dimensiones */
+    --ancho-logo: 90px;
+    --ancho-contenedor-encriptador: 600px;
+    --ancho-contenedor-mapa-grande: 350px;
+    --ancho-contenedor-mapa-mediano: 280px;
+    --altura-contenedor-mapa-grande: 660px;
+    --altura-contenedor-mapa-mediano: 540px;
+    --padding-textarea-grande: 15px;
+    --padding-textarea-pequeno: 10px;
 }
 
 /* Reset de márgenes y rellenos */
@@ -29,17 +43,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    min-height: 100vh; /* Permite que el contenido determine la altura mínima */
+    min-height: 100vh;
     text-align: center;
-}
-
-/* Estilos del main */
-main {
-    flex-grow: 1; /* Hace que el main ocupe el espacio disponible y empuje el footer hacia abajo */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
 
 /* Estilos del encabezado */
@@ -56,13 +61,21 @@ main {
     font-size: 2rem;
 }
 
+/* Estilos del main */
+main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 /* Estilos de la presentación */
 .presentacion {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    padding: auto;
     gap: 40px;
 }
 
@@ -78,12 +91,11 @@ main {
 /* Estilos del contenedor del mapa */
 .contenedor-mapa {
     display: flex;
-    width: 350px;
-    height: 660px;
+    width: var(--ancho-contenedor-mapa-grande);
+    height: var(--altura-contenedor-mapa-grande);
     position: relative;
     perspective: 1000px;
     perspective-origin: center;
-
 }
 
 .lado-mapa {
@@ -122,158 +134,86 @@ main {
 }
 
 .boton-mapa {
-    background-color: #7f0909; /* Color primario de Gryffindor */
-    color: #FFC500; /* Color secundario de Gryffindor */
-    border: 2px solid #FFC500;
+    background-color: var(--color-boton);
+    color: var(--color-boton-hover);
+    border: 2px solid var(--color-boton-hover);
     padding: 15px 30px;
     font-size: 1.2rem;
     font-family: var(--fuente-principal);
     cursor: pointer;
     border-radius: 5px;
     margin-bottom: 10px;
-    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s; /* Transiciones para la animación */
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
 }
 
 .boton-mapa:hover {
-    background-color: #FFC500;
-    color: #7f0909;
-    border: 2px solid #7f0909;
+    background-color: var(--color-boton-hover);
+    color: var(--color-boton);
+    border: 2px solid var(--color-boton);
 }
 
 .boton-mapa:active {
-    transform: scale(0.95); /* Reduce el tamaño al hacer clic */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Sombra para efecto de presión */
-}
-
-
-/* Estilos de las instrucciones */
-.instrucciones {
-    font-size: 0.9rem;
-    color: var(--color-texto);
-}
-
-/* Estilos del footer */
-.footer {
-    display: flex;
-    background-color: var(--color-footer);
-    padding: auto;
-    margin: 10px;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-    color: var(--color-texto);
-
-}
-
-.desarrollado {
-    margin: 10px;
-    font-size: 1rem;
-}
-
-.logos {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end; /* Para alinear a la derecha en pantallas grandes */
-}
-
-.logo {
-    width: 90px; /* Establecer un ancho uniforme para ambos logos */
-    margin-left: 10px;
-    padding: 10px;
-    object-fit: contain; /* Asegura que la imagen mantenga su aspecto dentro del contenedor */
-}
-
-/* Ajuste para pantallas de laptop */
-@media (max-width: 1200px) {
-    .contenedor-mapa {
-        width: 280px;
-        height: 540px;
-    }
-}
-
-
-@media (max-width: 600px) {
-    .presentacion {
-        padding: 20px;
-    }
-
-    .boton-mapa {
-        font-size: 1.2rem; /* Ajuste de tamaño de fuente para pantallas pequeñas */
-        padding: 15px 25px;
-    }
-
-    .footer {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .agradecimiento {
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    .logos {
-        flex-direction: column;
-        margin-top: 10px;
-        align-items: center; /* Centra los logos en dispositivos pequeños */
-    }
-
-    .logo {
-        margin-left: 0;
-        margin-bottom: 10px;
-    }
-}
-
-
-@keyframes brillo {
-    0%, 100% {
-        box-shadow: 0 0 5px #FFC500, 0 0 10px #FFC500, 0 0 15px #FFC500, 0 0 20px #FFC500;
-    }
-    50% {
-        box-shadow: 0 0 10px #FFC500, 0 0 20px #FFC500, 0 0 30px #FFC500, 0 0 40px #FFC500;
-    }
+    transform: scale(0.95);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .boton-mapa {
     animation: brillo 3s infinite;
 }
 
+@keyframes brillo {
+    0%, 100% {
+        box-shadow: 0 0 5px var(--color-boton-hover), 0 0 10px var(--color-boton-hover), 0 0 15px var(--color-boton-hover), 0 0 20px var(--color-boton-hover);
+    }
+    50% {
+        box-shadow: 0 0 10px var(--color-boton-hover), 0 0 20px var(--color-boton-hover), 0 0 30px var(--color-boton-hover), 0 0 40px var(--color-boton-hover);
+    }
+}
+
 /* Estilos del contenedor del encriptador */
 .contenedor-encriptador {
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: var(--ancho-contenedor-encriptador);
     background-image: url(assets/casas.png);
-    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el contenedor */
-    background-position: center; /* Centra la imagen de fondo */
-    background-repeat: no-repeat; /* Evita que la imagen de fondo se repita */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     padding: 50px;
+    border-radius: 10px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
+.contenedor-encriptador.visible {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.contenedor-encriptador.oculto {
+    display: none;
+    opacity: 0;
+    transform: translateY(-20px);
+}
 
 .texto-entrada, .texto-salida {
     width: 100%;
-    height: 100px;
-    padding: 10px;
+    padding: var(--padding-textarea-pequeno);
     font-size: 1.2rem;
     margin-bottom: 10px;
     border: 2px solid var(--color-contorno);
     border-radius: 5px;
-    background-color: rgba(34, 34, 34, 0.7); /* Reducir la opacidad del fondo de las cajas */
-    color: rgba(255, 255, 255, 0.8); /* Reducir la opacidad del texto para un efecto más suave */
+    background-color: var(--color-fondo-semitransparente);
+    color: var(--color-texto-semitransparente);
     resize: none;
 }
-
 
 .texto-salida {
     background-color: #333;
     color: #eee;
-    resize: none;
 }
 
 .botones-encriptador {
@@ -284,9 +224,9 @@ main {
 }
 
 .boton-encriptar, .boton-desencriptar, .boton-copiar {
-    background-color: #7f0909;
-    color: #FFC500;
-    border: 2px solid #FFC500;
+    background-color: var(--color-boton);
+    color: var(--color-boton-hover);
+    border: 2px solid var(--color-boton-hover);
     padding: 10px 20px;
     font-size: 1rem;
     font-family: var(--fuente-principal);
@@ -298,57 +238,84 @@ main {
 }
 
 .boton-encriptar:hover, .boton-desencriptar:hover, .boton-copiar:hover {
-    background-color: #FFC500;
-    color: #7f0909;
-    border: 2px solid #7f0909;
+    background-color: var(--color-boton-hover);
+    color: var(--color-boton);
+    border: 2px solid var(--color-boton);
 }
 
-/* Ajuste para centrar el encriptador cuando el mapa está abierto */
-.contenido-principal.abierto {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/* Estilos del contenedor del encriptador */
-.contenedor-encriptador {
-    display: none; /* Oculto inicialmente */
-    flex-direction: column;
-    align-items: center;
-    margin-top: 20px;
+/* Estilos del footer */
+.footer {
+    display: flex;
+    background-color: var(--color-footer);
+    margin: 10px;
     width: 100%;
-    max-width: 600px;
-    transition: opacity 0.5s ease, transform 0.5s ease; /* Transiciones para suavizar la aparición */
-}
-
-.contenedor-encriptador.visible {
-    display: flex; /* Mostrar cuando se abra el mapa */
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.contenedor-encriptador.oculto {
-    display: none;
-    opacity: 0;
-    transform: translateY(-20px); /* Posición inicial antes de aparecer */
-}
-
-.presentacion {
-    display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
-    flex-direction: column;
-    min-height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
+    color: var(--color-texto);
 }
 
-.contenido-principal.abierto + .contenedor-encriptador {
+.desarrollado {
+    margin: 10px;
+    font-size: 1rem;
+}
+
+.logos {
     display: flex;
-    justify-content: center;
     align-items: center;
-    flex-direction: column;
-    opacity: 1;
-    transform: translateY(0);
-    position: relative; /* Asegura que el encriptador se posicione en el espacio del mapa */
-    z-index: 10; /* Asegura que el encriptador esté por encima de otros elementos */
-    transition: opacity 0.5s ease, transform 0.5s ease;
+    justify-content: flex-end;
+}
+
+.logo {
+    width: var(--ancho-logo);
+    margin-left: 10px;
+    padding: 10px;
+    object-fit: contain;
+}
+
+/* Ajustes de tamaño para dispositivos */
+@media (max-width: 1200px) {
+    .contenedor-mapa {
+        width: var(--ancho-contenedor-mapa-mediano);
+        height: var(--altura-contenedor-mapa-mediano);
+    }
+}
+
+@media (max-width: 1024px) {
+    .contenedor-encriptador {
+        background-size: cover;
+        background-position: center;
+        background-color: var(--color-fondo-semitransparente);
+    }
+
+    .texto-entrada, .texto-salida {
+        padding: var(--padding-textarea-pequeno);
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    .presentacion {
+        padding: 20px;
+    }
+
+    .boton-mapa {
+        font-size: 1.2rem;
+        padding: 15px 25px;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .logos {
+        flex-direction: column;
+        margin-top: 10px;
+        align-items: center;
+    }
+
+    .logo {
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 }

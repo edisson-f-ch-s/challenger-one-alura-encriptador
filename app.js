@@ -20,6 +20,7 @@ function desencriptarTexto(texto) {
     return textoDesencriptado;
 }
 
+// Función para manejar la transición entre el mapa y el encriptador
 function manejarMapaYEncriptador() {
     const contenedorMapa = document.querySelector('.contenedor-mapa');
     const encriptador = document.getElementById('contenedor-encriptador');
@@ -34,7 +35,7 @@ function manejarMapaYEncriptador() {
             encriptador.classList.add('visible');
             encriptador.classList.remove('oculto');
             contenedorMapa.style.display = 'none'; // Ocultar el mapa después de que el encriptador aparece
-        }, 500); // Retraso de 1 segundo para permitir que la animación del mapa se complete
+        }, 500); // Retraso de 0.5 segundos para permitir que la animación del mapa se complete
 
     } else {
         encriptador.classList.remove('visible');
@@ -54,3 +55,23 @@ function manejarMapaYEncriptador() {
 // Vincular la función al botón y al mapa
 document.getElementById('boton-mapa').addEventListener('click', manejarMapaYEncriptador);
 document.querySelector('.contenedor-mapa').addEventListener('click', manejarMapaYEncriptador);
+
+// Funciones para encriptar, desencriptar y copiar el texto
+document.getElementById('encriptar').addEventListener('click', function() {
+    const textoEntrada = document.getElementById('texto-entrada').value;
+    const textoSalida = encriptarTexto(textoEntrada);
+    document.getElementById('texto-salida').value = textoSalida;
+});
+
+document.getElementById('desencriptar').addEventListener('click', function() {
+    const textoEntrada = document.getElementById('texto-entrada').value;
+    const textoSalida = desencriptarTexto(textoEntrada);
+    document.getElementById('texto-salida').value = textoSalida;
+});
+
+document.getElementById('copiar').addEventListener('click', function() {
+    const textoSalida = document.getElementById('texto-salida');
+    textoSalida.select();
+    document.execCommand('copy');
+    alert('Texto copiado al portapapeles');
+});
