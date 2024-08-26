@@ -27,13 +27,13 @@
 _Aquí puedes agregar algunas capturas de pantalla que muestren la interfaz de la aplicación en acción._
 
 - **Vista Inicial**:
-  ![Vista Inicial](./capturas/cap1.jpg)
+  ![Vista Inicial](./capturas/cap1.png)
 
 - **Mapa Abierto**:
-  ![Mapa Abierto](ruta/a/tu/imagen2.png)
+  ![Mapa Abierto](./capturas/cap2.png)
 
 - **Encriptador en Acción**:
-  ![Encriptador](ruta/a/tu/imagen3.png)
+  ![Encriptador](./capturas/cap3.png)
 
 ## 🛠️ Instalación y Configuración
 
