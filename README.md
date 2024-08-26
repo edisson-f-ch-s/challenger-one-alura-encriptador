@@ -27,7 +27,7 @@
 _Aquí puedes agregar algunas capturas de pantalla que muestren la interfaz de la aplicación en acción._
 
 - **Vista Inicial**:
-  ![Vista Inicial](ruta/a/tu/imagen1.png)
+  ![Vista Inicial](./capturas/cap1.jpg)
 
 - **Mapa Abierto**:
   ![Mapa Abierto](ruta/a/tu/imagen2.png)
